@@ -23,9 +23,7 @@ Make the Jacob matrix constant. In the WLS algorithm, Jacob matrix changes every
 The fast decomposition algorithm has the advantages of high speed, saving RAM, great convergence and the concrete algorithm is as followed
 
 First, divide the state vector x into amplitude v and phase angle θ:
-
 x=[■(θ@v)]
-
 where the amplitude and phase angle of the reference node is v_0^ and θ_0^.
 
 Then, divide the measurement vector z into active power and reactive power:
