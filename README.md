@@ -135,8 +135,11 @@ From the test result, we can conclude that the speed of state estimation has got
 
 ## Reference
 
-Chen, Y., M. Rice, K. Glaesemann, and Z. Huang. “Sub-Second State Estimation Implementation and Its Evaluation with Real Data [J].” In 2015 IEEE Power Energy Society General Meeting, 1–5, 2015.
-Elizondo, M. A., Y. Chen, and Z. Huang. “Reliability Value of Fast State Estimation on Power Systems [J].” In PES T D 2012, 1–6, 2012.
-Zhitong Yu, Ying Chen, Yankan Song, Shaowei Huang, "Comparison of parallel implementations of controls on GPU for transient simulation of power system [J]", Control Conference (CCC) 2016 35th Chinese, pp. 9996-10001, 2016, ISSN 1934-1768.
-Yu Erkeng. State Estimation of Power System. Beijing: China WaterPower Press, 1985.
+1. Chen, Y., M. Rice, K. Glaesemann, and Z. Huang. “Sub-Second State Estimation Implementation and Its Evaluation with Real Data [J].” In 2015 IEEE Power Energy Society General Meeting, 1–5, 2015.
+
+2. Elizondo, M. A., Y. Chen, and Z. Huang. “Reliability Value of Fast State Estimation on Power Systems [J].” In PES T D 2012, 1–6, 2012.
+
+3. Zhitong Yu, Ying Chen, Yankan Song, Shaowei Huang, "Comparison of parallel implementations of controls on GPU for transient simulation of power system [J]", Control Conference (CCC) 2016 35th Chinese, pp. 9996-10001, 2016, ISSN 1934-1768.
+
+4. Yu Erkeng. State Estimation of Power System. Beijing: China WaterPower Press, 1985.
   
