@@ -80,7 +80,7 @@ The cases used for testing are mixed of multiple 9241 nodes case and the largest
 | Content Cell  | Content Cell  |
 
 |   Name   | Node | Branch | Measurements |
-| ---------------------------------------- |
+| -------- | ---- | ------ | ------------- |
 | Case9241 | 9241  | 16049  | 41339       |
 | Case18481 | 18481 | 32098  | 82677       |
 | Case36961 | 36961 | 64196  | 165353      |
