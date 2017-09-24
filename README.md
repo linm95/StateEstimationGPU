@@ -23,46 +23,81 @@ Make the Jacob matrix constant. In the WLS algorithm, Jacob matrix changes every
 The fast decomposition algorithm has the advantages of high speed, saving RAM, great convergence and the concrete algorithm is as followed
 
 First, divide the state vector x into amplitude v and phase angle θ:
+
 x=[■(θ@v)]
+
 where the amplitude and phase angle of the reference node is v_0^ and θ_0^.
 
 Then, divide the measurement vector z into active power and reactive power:
+
 z=[■(z_α@z_r )]=[■(h_a (θ,v)@h_r (θ,v) )]=h(θ^ ,v^  )
 
 The steps is as followed:
-1 k=0, initialize the vector 〖v=v〗^0,θ=θ^0
-2 According to formula:
+
+1. k=0, initialize the vector 〖v=v〗^0,θ=θ^0
+
+2. According to formula:
+
 A=v_0^4 [(-B_a )^T (-B_a )]
+
 --where B_a equals to the reciprocal of branch reactance
+
 B=v_0^2 [(-B_r )^T (-B_r )]
-		--where B_r equals to the imaginary part of branch admittance
-3 LU decompose the A and B, getting L_A U_A,L_B U_B
-		-- A=L_A U_A
-		-- B=L_B U_B
-4 According to:
+
+--where B_r equals to the imaginary part of branch admittance
+		
+3. LU decompose the A and B, getting L_A U_A,L_B U_B
+
+-- A=L_A U_A
+
+-- B=L_B U_B
+
+4. According to:
+
 α^k=[■((∂h_a^T)/∂θ&(∂h_r^T)/∂θ)][z-h(θ^(k-1),v^(k-1) )]
+
 Compute the free vector α^k
-5 According to:
+
+5. According to:
+
 A∆θ^k=α^k
+
 Get the corrections ∆θ
-6 According to:
+
+6. According to:
+
 b^k=[■((∂h_a^T)/∂v&(∂h_r^T)/∂v)][z-h(θ^(k-1),v^(k-1) )]
+
 Compute the free vector b^k
-7 According to:
+
+7. According to:
+
 B∆v^k=b^k
+
 Get the corrections ∆v
-8 Update the state vector θ^(k+1)=θ^k+∆θ, v^(k+1)=v^k+∆v
-9 Check whether the accuracy requirement is satisfied. If so, output the result or get back to step 4.
-	Implementation
+
+8. Update the state vector θ^(k+1)=θ^k+∆θ, v^(k+1)=v^k+∆v
+
+9. Check whether the accuracy requirement is satisfied. If so, output the result or get back to step 4.
+
+## Implementation
 This program is aimed at accelerating the state estimation in power system with GPU, implementing the complete computation of state estimation and realizing significant speed-up.
+
 The features of this program lie in the facts that it combines the advantages of GPU and CPU. For the serial part of the program, it mainly utilizes the CPU whereas for the parallel part, it mainly uses the GPU. Meanwhile, the algorithm well be improved to fully excavate the parallelism.
+
 First, the program is divided into initialization stage and iterating stage, where initialization stage corresponds to the stage 1-3, only executing once, and iterating stage corresponds to the stage 4-7, executing multiple times.
+
 In both stages, program is divided into multiple modules based on their own computing features. Then each module will be matched with GPU or CPU according to their efficiency on the two platforms, which is called modulization.
+
 The initialization stage includes modules of Jacob computation, information matrix computation, LU decomposition, AMD and matrix reordering.
+
 The iterating stage includes modules of measurement function computation, LU backward and forward computation, free vector computation and checking & updating.
+
 In the final program, the initialization module only executes once and the time consumption of communication between GPU and CPU is negligible. Therefore, some modules of this stage are on CPU while others on GPU. The iterating stage needs to be executed multiple times and all the modules are implemented on GPU.
-	Case test
-	introduction
+
+## Case test
+### introduction
+
 The tests of the program is mainly about the large scale cases in power system. The cases are all from the power flow cases of the Matpower 6.0. The results of the power flow computation are mixed with some noise as the measurements of the state estimation. This approach can maximize the scale of the measurements and can reflect the efficiency of the program in worst cases.
 
 The information of the test platform is as followed:
