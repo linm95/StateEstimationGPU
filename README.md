@@ -10,76 +10,6 @@ The process of state estimation involves many matrix related computation like ma
 
 GPU is a kind of processer that specializes in parallel computation, so the introduction of GPU in state estimation can make great influence over the speed of computation.
 
-##  The algorithm of state estimation based on fast decomposition
-
-Considering the large size of actual power system, this algorithm overlooks some secondary factors to decrease the computing load and increase the computing speed.
-
-It manly has two ways for simplification.
-
-The decomposition of active power and reactive power. When a high voltage power system runs well, the couplings between voltage amplitude v and active power P, phase angle δ and reactive power Q are so weak that we can substitute the items ∆P/∆v and ∆Q/∆θ in the Jacob matrix H with 0. This will help us decrease the size of the matrix and requirement for RAM but increase the speed to get a convergent result.
-  
-Make the Jacob matrix constant. In the WLS algorithm, Jacob matrix changes every iteration but it changes slightly each time. If the Jacob matrix is regarded as constant, a convergent result can still be got without updating the Jacob matrix every iteration. It also saves the time for LU decomposition, thus increasing the speed.
-  
-The fast decomposition algorithm has the advantages of high speed, saving RAM, great convergence and the concrete algorithm is as followed
-
-First, divide the state vector x into amplitude v and phase angle θ:
-
-x=[■(θ@v)]
-
-where the amplitude and phase angle of the reference node is v_0^ and θ_0^.
-
-Then, divide the measurement vector z into active power and reactive power:
-
-z=[■(z_α@z_r )]=[■(h_a (θ,v)@h_r (θ,v) )]=h(θ^ ,v^  )
-
-The steps is as followed:
-
-1. k=0, initialize the vector 〖v=v〗^0,θ=θ^0
-
-2. According to formula:
-
-    A=v_0^4 [(-B_a )^T (-B_a )]
-
-    --where B_a equals to the reciprocal of branch reactance
-
-    B=v_0^2 [(-B_r )^T (-B_r )]
-
-    --where B_r equals to the imaginary part of branch admittance
-		
-3. LU decompose the A and B, getting L_A U_A,L_B U_B
-
-    -- A=L_A U_A
-
-    -- B=L_B U_B
-
-4. According to:
-
-    α^k=[■((∂h_a^T)/∂θ&(∂h_r^T)/∂θ)][z-h(θ^(k-1),v^(k-1) )]
-
-    Compute the free vector α^k
-
-5. According to:
-
-    A∆θ^k=α^k
-
-    Get the corrections ∆θ
-
-6. According to:
-
-    b^k=[■((∂h_a^T)/∂v&(∂h_r^T)/∂v)][z-h(θ^(k-1),v^(k-1) )]
-
-    Compute the free vector b^k
-
-7. According to:
-
-    B∆v^k=b^k
-
-    Get the corrections ∆v
-
-8. Update the state vector θ^(k+1)=θ^k+∆θ, v^(k+1)=v^k+∆v
-
-9. Check whether the accuracy requirement is satisfied. If so, output the result or get back to step 4.
-
 ## Implementation
 This program is aimed at accelerating the state estimation in power system with GPU, implementing the complete computation of state estimation and realizing significant speed-up.
 
@@ -145,6 +75,7 @@ The efficiencies of the cases are in table 4.3 and graph 4.1.
 | Case73921|311.112|175.371|486.483|
 | Case147841|631.049|323.506|954.555|
  
+ []b
 Graph 4.1 Case results
 
 ## Result analysis
