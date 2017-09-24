@@ -117,12 +117,13 @@ Graph 4.1 Case results
 For a 9241-node power system, the time for state estimation is only 84.4 ms, which is much faster than any actual state estimation program.
 Add up the time on CPU and the time GPU of each cases respectively and the data is as followed.
 Table 4.3 Time for GPU/CPU
-Case	GPU time(ms)	CPU time(ms)	ratio(GPU/CPU)
-9241	52.731	31.692	1.664
-18481	83.579	69.168	1.237
-36961	130.480	137.609	0.948
-73921	223.528	262.984	0.851
-147841	404.327	550.228	0.735
+|Case|GPU time(ms)|CPU time(ms)|ratio(GPU/CPU)|
+|--|--|--|--|
+|9241|52.731|31.692|1.664|
+|18481|83.579|69.168|1.237|
+|36961|130.480|137.609|0.948|
+|73921|223.528|262.984|0.851|
+|147841|404.327|550.228|0.735|
  
 In the case 9241, the time consumption of GPU is much greater than that of CPU, but in case 147841, the time consumption of GPU is much less than that of CPU. With the growing of the size of the cases, the time consumption on GPU is getting less and less, which means the greater the computation size is, the more obvious the acceleration effect. This exactly reflects the advantage of GPU in the state estimation.
 
@@ -132,8 +133,8 @@ From the test result, we can conclude that the speed of state estimation has got
 
 ## Reference
 
-	Chen, Y., M. Rice, K. Glaesemann, and Z. Huang. “Sub-Second State Estimation Implementation and Its Evaluation with Real Data [J].” In 2015 IEEE Power Energy Society General Meeting, 1–5, 2015.
-	Elizondo, M. A., Y. Chen, and Z. Huang. “Reliability Value of Fast State Estimation on Power Systems [J].” In PES T D 2012, 1–6, 2012.
-	Zhitong Yu, Ying Chen, Yankan Song, Shaowei Huang, "Comparison of parallel implementations of controls on GPU for transient simulation of power system [J]", Control Conference (CCC) 2016 35th Chinese, pp. 9996-10001, 2016, ISSN 1934-1768.
-	Yu Erkeng. State Estimation of Power System. Beijing: China WaterPower Press, 1985.
+Chen, Y., M. Rice, K. Glaesemann, and Z. Huang. “Sub-Second State Estimation Implementation and Its Evaluation with Real Data [J].” In 2015 IEEE Power Energy Society General Meeting, 1–5, 2015.
+Elizondo, M. A., Y. Chen, and Z. Huang. “Reliability Value of Fast State Estimation on Power Systems [J].” In PES T D 2012, 1–6, 2012.
+Zhitong Yu, Ying Chen, Yankan Song, Shaowei Huang, "Comparison of parallel implementations of controls on GPU for transient simulation of power system [J]", Control Conference (CCC) 2016 35th Chinese, pp. 9996-10001, 2016, ISSN 1934-1768.
+Yu Erkeng. State Estimation of Power System. Beijing: China WaterPower Press, 1985.
   
