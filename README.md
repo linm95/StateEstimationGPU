@@ -38,43 +38,43 @@ The steps is as followed:
 
 2. According to formula:
 
-A=v_0^4 [(-B_a )^T (-B_a )]
+    A=v_0^4 [(-B_a )^T (-B_a )]
 
---where B_a equals to the reciprocal of branch reactance
+    --where B_a equals to the reciprocal of branch reactance
 
-B=v_0^2 [(-B_r )^T (-B_r )]
+    B=v_0^2 [(-B_r )^T (-B_r )]
 
---where B_r equals to the imaginary part of branch admittance
+    --where B_r equals to the imaginary part of branch admittance
 		
 3. LU decompose the A and B, getting L_A U_A,L_B U_B
 
--- A=L_A U_A
+    -- A=L_A U_A
 
--- B=L_B U_B
+    -- B=L_B U_B
 
 4. According to:
 
-α^k=[■((∂h_a^T)/∂θ&(∂h_r^T)/∂θ)][z-h(θ^(k-1),v^(k-1) )]
+    α^k=[■((∂h_a^T)/∂θ&(∂h_r^T)/∂θ)][z-h(θ^(k-1),v^(k-1) )]
 
-Compute the free vector α^k
+    Compute the free vector α^k
 
 5. According to:
 
-A∆θ^k=α^k
+    A∆θ^k=α^k
 
-Get the corrections ∆θ
+    Get the corrections ∆θ
 
 6. According to:
 
-b^k=[■((∂h_a^T)/∂v&(∂h_r^T)/∂v)][z-h(θ^(k-1),v^(k-1) )]
+    b^k=[■((∂h_a^T)/∂v&(∂h_r^T)/∂v)][z-h(θ^(k-1),v^(k-1) )]
 
-Compute the free vector b^k
+    Compute the free vector b^k
 
 7. According to:
 
-B∆v^k=b^k
+    B∆v^k=b^k
 
-Get the corrections ∆v
+    Get the corrections ∆v
 
 8. Update the state vector θ^(k+1)=θ^k+∆θ, v^(k+1)=v^k+∆v
 
