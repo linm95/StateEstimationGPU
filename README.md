@@ -15,17 +15,20 @@ GPU is a kind of processer that specializes in parallel computation, so the intr
 Considering the large size of actual power system, this algorithm overlooks some secondary factors to decrease the computing load and increase the computing speed.
 
 It manly has two ways for simplification.
-	The decomposition of active power and reactive power. When a high voltage power system runs well, the couplings between voltage amplitude v and active power P, phase angle δ and reactive power Q are so weak that we can substitute the items ∆P/∆v and ∆Q/∆θ in the Jacob matrix H with 0. This will help us decrease the size of the matrix and requirement for RAM but increase the speed to get a convergent result.
+
+The decomposition of active power and reactive power. When a high voltage power system runs well, the couplings between voltage amplitude v and active power P, phase angle δ and reactive power Q are so weak that we can substitute the items ∆P/∆v and ∆Q/∆θ in the Jacob matrix H with 0. This will help us decrease the size of the matrix and requirement for RAM but increase the speed to get a convergent result.
   
-	Make the Jacob matrix constant. In the WLS algorithm, Jacob matrix changes every iteration but it changes slightly each time. If the Jacob matrix is regarded as constant, a convergent result can still be got without updating the Jacob matrix every iteration. It also saves the time for LU decomposition, thus increasing the speed.
+Make the Jacob matrix constant. In the WLS algorithm, Jacob matrix changes every iteration but it changes slightly each time. If the Jacob matrix is regarded as constant, a convergent result can still be got without updating the Jacob matrix every iteration. It also saves the time for LU decomposition, thus increasing the speed.
   
 The fast decomposition algorithm has the advantages of high speed, saving RAM, great convergence and the concrete algorithm is as followed
 
 First, divide the state vector x into amplitude v and phase angle θ:
 x=[■(θ@v)]
-where the amplitude and phase angle of the reference node is v_0^   and θ_0^ .
+where the amplitude and phase angle of the reference node is v_0^ and θ_0^.
+
 Then, divide the measurement vector z into active power and reactive power:
 z=[■(z_α@z_r )]=[■(h_a (θ,v)@h_r (θ,v) )]=h(θ^ ,v^  )
+
 The steps is as followed:
 1 k=0, initialize the vector 〖v=v〗^0,θ=θ^0
 2 According to formula:
