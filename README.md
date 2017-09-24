@@ -117,7 +117,7 @@ Graph 4.1 Case results
 For a 9241-node power system, the time for state estimation is only 84.4 ms, which is much faster than any actual state estimation program.
 Add up the time on CPU and the time GPU of each cases respectively and the data is as followed.
 
-###Table 4.3 Time for GPU/CPU
+### Table 4.3 Time for GPU/CPU
 
 | Case|GPU time(ms)|CPU time(ms)|ratio(GPU/CPU)|
 | -- | -- | -- | -- |
