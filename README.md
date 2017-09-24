@@ -76,8 +76,7 @@ The efficiencies of the cases are in table 4.3 and graph 4.1.
 | Case147841|631.049|323.506|954.555|
  
  ![image](https://github.com/linm13/StateEstimationGPU/blob/master/src/test_result.png)
- 
-Graph 4.1 Case results
+             Graph 4.1 Case results
 
 ## Result analysis
 
