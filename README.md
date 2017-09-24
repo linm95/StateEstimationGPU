@@ -74,13 +74,13 @@ GPU: CUDA 8.0
 CPU: Visual Studio 2012
 The cases used for testing are mixed of multiple 9241 nodes case and the largest case is 140 thousand nodes. The details of the cases are in table 4.1.
 ### Table 4.1 Info of cases
- |   Name   | Node | Branch | Measurements|
- |----------------------------------------|
- | Case9241 |9241  | 16049  | 41339       |
- |Case18481 |18481 | 32098  | 82677       |
- |Case36961 |36961 | 64196  | 165353      |
- |Case73921 |73921 | 128392 | 330705      |
- |Case147841|147841| 256784 | 661409      |
+ |   Name   | Node | Branch | Measurements |
+ | ---------------------------------------- |
+ | Case9241 | 9241  | 16049  | 41339       |
+ | Case18481 | 18481 | 32098  | 82677       |
+ | Case36961 | 36961 | 64196  | 165353      |
+ | Case73921 | 73921 | 128392 | 330705      |
+ | Case147841 | 147841| 256784 | 661409      |
 
 ## Correctness test
 Compare the test result with the actual value, the info is in table 4.2.
