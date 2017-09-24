@@ -74,10 +74,6 @@ GPU: CUDA 8.0
 CPU: Visual Studio 2012
 The cases used for testing are mixed of multiple 9241 nodes case and the largest case is 140 thousand nodes. The details of the cases are in table 4.1.
 ### Table 4.1 Info of cases
-| First Header  | Second Header |
-| ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
 
 |   Name   | Node | Branch | Measurements |
 | -------- | ---- | ------ | ------------- |
@@ -91,13 +87,14 @@ The cases used for testing are mixed of multiple 9241 nodes case and the largest
 Compare the test result with the actual value, the info is in table 4.2.
  
 ### Table 4.2 Correctness of Cases
-Case	9241	18481	36961	73921	147841
-Max amp diff	0.00226	0.00227	0.00258	0.0023	0.002446
-Ave amp diff	0.000352	0.000351	0.000461	0.00034	0.000387
-Amp diff SD	0.00016	0.00014	0.00021	0.00019	0.00031
-Max ang diff	0.0051	0.0056	0.00596	0.0063	0.0061
-Ave ang diff	0.0011	0.0012	0.00118	0.0016	0.00111
-Ang diff SD	0.0015	0.00173	0.0015	0.0021	0.0014
+| Case | 9241 | 18481 | 36961 | 73921 | 147841 |
+| -- | -- | -- | -- | -- | -- |
+| Max amp diff | 0.00226 | 0.00227 | 0.00258 | 0.0023 | 0.002446 |
+| Ave amp diff | 0.000352 | 0.000351 | 0.000461 | 0.00034 | 0.000387 |
+| Amp diff SD | 0.00016 | 0.00014 | 0.00021 | 0.00019 | 0.00031 |
+| Max ang diff | 0.0051 | 0.0056 | 0.00596 | 0.0063 | 0.0061 |
+| Ave ang diff | 0.0011 | 0.0012 | 0.00118 | 0.0016 | 0.00111 |
+| Ang diff SD | 0.0015 | 0.00173 | 0.0015 | 0.0021 | 0.0014 |
  
 The correctness has no problem.
 
@@ -105,12 +102,13 @@ The correctness has no problem.
 
 The efficiencies of the cases are in table 4.3 and graph 4.1.
 ### Table 4.3 Efficiency of cases
-Case	Initialization(ms)	Iterating(ms)	Sum(ms)
-Case9241	43.877	40.521	84.398
-Case18481	90.461	62.288	152.749
-Case36961	169.201	98.886	268.087
-Case73921	311.112	175.371	486.483
-Case147841	631.049	323.506	954.555
+| Case|Initialization(ms)|Iterating(ms)|Sum(ms)|
+|--|--|--|--|
+| Case9241|43.877|40.521|84.398|
+| Case18481|90.461|62.288|152.749|
+| Case36961|169.201|98.886|268.087|
+| Case73921|311.112|175.371|486.483|
+| Case147841|631.049|323.506|954.555|
  
 Graph 4.1 Case results
 
