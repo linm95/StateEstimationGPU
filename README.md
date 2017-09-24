@@ -1,6 +1,8 @@
 # StateEstimationGPU
 This is a GPU program for the state estimation in power system
 
+## introduction
+
 For the monitoring and dispatching of power system, state estimation is a very important part. Its principle is to estimate the state of the power system with the data got from the SCADA, including the amplitude and phase angle of the voltage of nodes. The state estimation offers precise and reliable data for the subsequent computation of power flow. It can be regarded as a kind of data filtering and it sacrifices the redundancy for accuracy and can also be regarded as generalized power flow computation.
 
 In nowadays state estimation system, SCADA updates data every millisecond which is much more fast than the speed of state estimation computation, therefore making the monitoring of power system slower and unable to response to the accident quickly, threating the stability of power system. So the speed-up of state estimation is of great significance for monitoring and dispatching for power system.
@@ -8,7 +10,7 @@ The process of state estimation involves many matrix related computation like ma
 
 GPU is a kind of processer that specializes in parallel computation, so the introduction of GPU in state estimation can make great influence over the speed of computation.
 
-##	The algorithm of state estimation based on fast decomposition
+##  The algorithm of state estimation based on fast decomposition
 
 Considering the large size of actual power system, this algorithm overlooks some secondary factors to decrease the computing load and increase the computing speed.
 
@@ -59,15 +61,16 @@ In the final program, the initialization module only executes once and the time 
 	Case test
 	introduction
 The tests of the program is mainly about the large scale cases in power system. The cases are all from the power flow cases of the Matpower 6.0. The results of the power flow computation are mixed with some noise as the measurements of the state estimation. This approach can maximize the scale of the measurements and can reflect the efficiency of the program in worst cases.
+
 The information of the test platform is as followed:
-Hardware:
+### Hardware:
 GPU: NVIDA Tesla P100-PCIE-12GB
 CPU: Intel Xeon CPU E3-1230 V5
-Software:
+### Software:
 GPU: CUDA 8.0
 CPU: Visual Studio 2012
 The cases used for testing are mixed of multiple 9241 nodes case and the largest case is 140 thousand nodes. The details of the cases are in table 4.1.
-Table 4.1 Info of cases
+### Table 4.1 Info of cases
 Name	Node	Branch	Measurements
 Case9241	9241	16049	41339
 Case18481	18481	32098	82677
@@ -75,10 +78,10 @@ Case36961	36961	64196	165353
 Case73921	73921	128392	330705
 Case147841	147841	256784	661409
 
-##	Correctness test
+## Correctness test
 Compare the test result with the actual value, the info is in table 4.2.
  
-Table 4.2 Correctness of Cases
+### Table 4.2 Correctness of Cases
 Case	9241	18481	36961	73921	147841
 Max amp diff	0.00226	0.00227	0.00258	0.0023	0.002446
 Ave amp diff	0.000352	0.000351	0.000461	0.00034	0.000387
@@ -89,9 +92,10 @@ Ang diff SD	0.0015	0.00173	0.0015	0.0021	0.0014
  
 The correctness has no problem.
 
-##	Efficiency test
+## Efficiency test
+
 The efficiencies of the cases are in table 4.3 and graph 4.1.
-Table 4.3 Efficiency of cases
+### Table 4.3 Efficiency of cases
 Case	Initialization(ms)	Iterating(ms)	Sum(ms)
 Case9241	43.877	40.521	84.398
 Case18481	90.461	62.288	152.749
@@ -101,7 +105,8 @@ Case147841	631.049	323.506	954.555
  
 Graph 4.1 Case results
 
-##	Result analysis
+## Result analysis
+
 For a 9241-node power system, the time for state estimation is only 84.4 ms, which is much faster than any actual state estimation program.
 Add up the time on CPU and the time GPU of each cases respectively and the data is as followed.
 Table 4.3 Time for GPU/CPU
@@ -113,10 +118,13 @@ Case	GPU time(ms)	CPU time(ms)	ratio(GPU/CPU)
 147841	404.327	550.228	0.735
  
 In the case 9241, the time consumption of GPU is much greater than that of CPU, but in case 147841, the time consumption of GPU is much less than that of CPU. With the growing of the size of the cases, the time consumption on GPU is getting less and less, which means the greater the computation size is, the more obvious the acceleration effect. This exactly reflects the advantage of GPU in the state estimation.
-	Conclusion
+
+## Conclusion
+
 From the test result, we can conclude that the speed of state estimation has got the level of sub-second. Considering that the size of actual power system is about 200 thousand nodes, the time for state estimation can be completed in 150 ms with this GPU program, which proves the acceleration effect of GPU on state estimation. 
 
-Reference
+## Reference
+
 	Chen, Y., M. Rice, K. Glaesemann, and Z. Huang. “Sub-Second State Estimation Implementation and Its Evaluation with Real Data [J].” In 2015 IEEE Power Energy Society General Meeting, 1–5, 2015.
 	Elizondo, M. A., Y. Chen, and Z. Huang. “Reliability Value of Fast State Estimation on Power Systems [J].” In PES T D 2012, 1–6, 2012.
 	Zhitong Yu, Ying Chen, Yankan Song, Shaowei Huang, "Comparison of parallel implementations of controls on GPU for transient simulation of power system [J]", Control Conference (CCC) 2016 35th Chinese, pp. 9996-10001, 2016, ISSN 1934-1768.
